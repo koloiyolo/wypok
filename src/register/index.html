@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+
+<body>
+
+    <div class="loginCard">
+        <form action="controller.php" method="POST" id="registerForm" onSubmit="return checks()">
+            <label>Register Page</label>
+            <br>
+            <input type="text" placeholder="Your username" name='user' required>
+            <br>
+            <input type="email" placeholder="Your email" name='email' required>
+            <br>
+            <input id="password" name="password" type="password" placeholder="Your password" name='password' required>
+            <br>
+            <input id="confirm" type="password" placeholder="Confirm password" required>
+            <br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <script>
+        function checks() {
+            let password = $('#password').value;
+            let confirm = $('#confirm').value;
+            if (password !== confirm) {
+                // Cancel form submission
+                alert("Passwords don't match.");
+                return false;
+            }
+            alert("check1");
+            let username = $('#user').val();
+            alert("check2");
+            $.ajax({
+                type: 'POST',
+                url: 'http:/api/users/get/check/',
+                data: { user: username },
+                success: function (response) {
+                    alert("check3");
+                    alert(response);
+                    // Handle the API response
+                    if (response !== true) {
+                        alert('Username is already taken.');
+                        return false;
+                    }
+                },
+                error: function (error) {
+                    // Handle errors
+                    console.log(error);
+                }
+            });
+
+            return true;
+
+        }
+    </script>
+</body>
+
+</html>

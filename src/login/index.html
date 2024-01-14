@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+
+<body>
+
+    <div class="loginCard">
+        <form action="controller.php" method="POST" id="registerForm">
+            <label>Login Page</label>
+            <br>
+            <input name="user" type="text" placeholder="Your username" required>
+            <br>
+            <input name="password" type="password" placeholder="Your password" required>
+            <br>
+            <input type="submit" value="Log in">
+            <br>
+            <a href="/register/">No account yet? Register!</a>
+        </form>
+    </div>
+</body>
+
+</html>

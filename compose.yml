@@ -1,0 +1,41 @@
+services:
+
+  site:
+    container_name: wypok
+    image: php:8.2-apache
+    ports:
+      - 8080:80
+    volumes:
+      - ./src:/var/www/html
+
+  db:
+    container_name: db
+    image: mysql:8.0
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: wypok
+    volumes: 
+      - ./db:/var/lib/mysql
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin:latest
+    ports:
+      - 8081:80
+      
+  api:
+    container_name: api
+    build: ./api
+    ports:  # ports for testing purposes, change to expose
+      - 8000:80
+    depends_on:
+      - db
+     
+
+
+
+volumes:
+  src:
+  db:
