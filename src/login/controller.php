@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
         
         $decoded_response = json_decode($response, true);
         if ($decoded_response === true) {
+            session_start();
             $_SESSION['user_id'] = $user;
-            echo $_SESSION['user_id'];
             header("Location: /");
         } else {
             // Handle unsuccessful login
