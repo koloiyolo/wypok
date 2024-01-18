@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $statement->get_result();
         $row = $result->fetch_assoc();
 
-        if ($row["password"] === $password) {
+        if (password_verify($password, $row['password'])) {
             echo json_encode(true);
             exit();
         }

@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
             $url = 'http://api/users/add/';
             $user = $_POST['user'];
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     
             $post_data = ['user' => $user,
                           'email' => $email,
