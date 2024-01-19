@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $statement->bind_param("sssss", $title, $content, $currentDate, $user, $category);
         $statement->execute();
         if ($statement->affected_rows > 0) {
-            echo "Record added successfully!";
+            echo json_encode(true);
         } else {
             echo "Error adding record: " . $statement->error;
         }

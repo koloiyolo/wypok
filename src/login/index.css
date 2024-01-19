@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #333;
+    background: #111;
 }
 
 .loginCard {
@@ -29,8 +29,18 @@ input {
     color: white;
 }
 
+input[type=submit] {
+    background: orangered;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background: rgb(230, 44, 0);
+}
+
+
 input:invalid {
-    border: 4px solid red;
+    border: 4px solid orangered;
 }
 
 .logreg {

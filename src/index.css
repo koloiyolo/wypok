@@ -18,51 +18,83 @@ body {
     flex-direction: column;
 }
 
-.navbar {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border: #555 solid 1px;
-    width: 100vw;
-}
-.button {
-    padding: 16px;
-    margin: 16px;
-    background: orange;
-    font-size:20px;
-    text-decoration: none;
-    color: whitesmoke;
+.content {
+    margin-left: 15vw;
+    margin-right: 15vw;
 }
 
-.nav-button {
-    border-radius: 12px;
+.navbar {
+    border-bottom: 1px #222 solid;
+    padding: 8px;
+    flex-direction: row;
+    display: flex;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+    background: #111;
+    border-bottom-right-radius: 32px;
+}
+
+.button {
+    padding: 8px;
+    background: rgb(255, 69, 0);
+    font-size:16px;
+    text-decoration: none;
+    color: whitesmoke;
+    border-radius: 8px;
+}
+
+.add-button {
+    margin-left: 16px;
 }
 
 .search-bar {
-    padding: 14px;
+    margin-left: 20vw;
+    padding: 4px;
     background: #333;
     color: whitesmoke;
-    font-size:20px;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius:12px;
+    font-size:16px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    margin-right: none;
 }
 
 .search-button {
     margin-left: none;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius:12px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
+.log_button {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-right: 16px;
+}
+
+.nick {
+    margin-right: 0px;
+    margin-left: auto;
+    background: #000;
+    padding: 8px;
+    font-size:16px;
+    text-decoration: none;
+    color: whitesmoke;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+}
 
 .button:hover {
     cursor: pointer;
-    background: orangered;
+    background: rgb(230, 44, 0);
 
 }
 
 .post-card {
+    border: 1px #222 solid;
     background: #111;
     margin: 16px;
-    border-radius: 24px;
+    border-radius: 8px;
     padding: 16px;
 }
 
@@ -72,7 +104,6 @@ body {
 
 .comment-card {
     padding: 8px;
-    background: #000;
     border-radius: 16px;
     margin: 8px;
 }

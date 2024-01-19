@@ -7,6 +7,7 @@ function view_post($post) {
     echo "<br>";
     echo "<p>" . $post["content"] . "</p>";
     echo "<p>Created at: " . $post["date"] . "</p>";
+    echo '<hr>';
 
     // Retrieve and display comments for each blog post
     $post_data = ['post_id' => $post['id']];
