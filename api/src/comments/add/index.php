@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($statement->affected_rows > 0) {
             echo json_encode(true);
         } else {
-            echo json_encode("Error adding record: " . $statement->error);
+            echo json_encode(false);
         }
 
         $statement->close();

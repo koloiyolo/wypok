@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form class="form-card" action="/add_post_controller.php" method="post">
+    <form class="form-card" action="/add_post.php" method="post">
         <div class="column">
             <br>
             <h3>What's on your mind?</h3>

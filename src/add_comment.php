@@ -1,9 +1,9 @@
 <?php
 session_start();
-include('/functions.php');
+include('functions.php');
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_SESSION['user'])) {
-        $user = $_SESSION['user'];
+    if (isset($_SESSION['user_id'])) {
+        $user = $_SESSION['user_id'];
     } else {
         $user = 'Anonymous';
     }
@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                   'post_id' => $post_id,
                   'content' => $content];
 
-    $url = 'http://api/posts/add/';
+    $url = 'http://api/comments/add/';
     if ($response = get_post_args($url, $post_data)) {
         header('Location: /');
     } else {

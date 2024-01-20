@@ -25,12 +25,13 @@ body {
 
 .navbar {
     border-bottom: 1px #222 solid;
-    padding: 8px;
     flex-direction: row;
     display: flex;
+    padding-top: 6px;
+    padding-bottom: 6px;
     top: 0;
     width: 100%;
-    z-index: 1000; 
+    z-index: 1000;
     background: #111;
 }
 
@@ -41,6 +42,12 @@ body {
     text-decoration: none;
     color: whitesmoke;
     border-radius: 8px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background: rgb(230, 44, 0);
+
 }
 
 .add-button {
@@ -82,22 +89,20 @@ body {
     color: whitesmoke;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-
 }
 
-.button:hover {
-    cursor: pointer;
-    background: rgb(230, 44, 0);
-
+.delete-button {
+    margin-left: 94%;
+    padding: 4px;
+    border-radius: 4px;
 }
-
 .post-card {
     border: 1px #222 solid;
     background: #111;
     margin: 0px;
     border-radius: 8px;
     padding: 32px;
-    margin-top: 16px;
+    margin-top: 32px;
 }
 
 .post-card p{
@@ -120,7 +125,7 @@ form input {
     width: 60vw;
     padding: 12px 20px;
     margin: 8px;
-    background-color: #444;
+    background-color: #333;
     box-sizing: border-box;
     color: white;
 }
@@ -132,7 +137,7 @@ form textarea {
     height: 10vh;
     padding: 12px 20px;
     margin: 8px 0;
-    background-color: #444;
+    background-color: #333;
     box-sizing: border-box;
     color: white;
 }
@@ -160,4 +165,16 @@ input[type=submit]:hover {
     background: #111;
     border-radius: 8px;
     padding: 16px;
+}
+.comment-field {
+    width: 85%;
+    margin-right: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.comment-btn {
+    width: 10%;
+    margin-left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
