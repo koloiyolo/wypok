@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                   'content' => $content];
 
     $url = 'http://api/posts/add/';
-    if (json_decode($response = get_post_args($url, $post_data))) {
+    if ($response = get_post_args($url, $post_data)) {
         header('Location: /');
     } else {
         echo 'There was an error';

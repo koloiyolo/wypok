@@ -10,10 +10,10 @@
 
 <body>
     <div class="navbar row">
-        <a class="add-button button" href="/add_post/">+ Create New Post</a>
+        <a class="add-button button" href="/">Reload</a>
         <input type=text class="search-bar" placeholder="Your prompt...">
         <a class="search-button button">Search</a>
-        <p class="nick"><?php echo $_SESSION['user_id'];?></p>
+        <p class="nick"><?php echo $_SESSION['user_id']; ?></p>
         <a class="button log_button" href="/logout/">Logout</a>
     </div>
 </body>

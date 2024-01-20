@@ -19,14 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         $statement = $mysqli->prepare("INSERT INTO comment (id, post_id, user, content, date) VALUES (NULL, ?, ?, ?, ?)");
-        $statement->bind_param("iss", $post_id, $user, $content, $currentDate);
+        $statement->bind_param("isss", $post_id, $user, $content, $currentDate);
 
         $statement->execute();
 
         if ($statement->affected_rows > 0) {
             echo json_encode(true);
         } else {
-            echo "Error adding record: " . $statement->error;
+            echo json_encode("Error adding record: " . $statement->error);
         }
 
         $statement->close();

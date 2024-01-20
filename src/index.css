@@ -32,11 +32,10 @@ body {
     width: 100%;
     z-index: 1000; 
     background: #111;
-    border-bottom-right-radius: 32px;
 }
 
 .button {
-    padding: 8px;
+    padding: 10px;
     background: rgb(255, 69, 0);
     font-size:16px;
     text-decoration: none;
@@ -50,7 +49,8 @@ body {
 
 .search-bar {
     margin-left: 20vw;
-    padding: 4px;
+    width: 30vw;
+    padding: auto;
     background: #333;
     color: whitesmoke;
     font-size:16px;
@@ -74,8 +74,8 @@ body {
 .nick {
     margin-right: 0px;
     margin-left: auto;
-    background: #000;
-    padding: 8px;
+    border: 1px #222 solid;
+    padding: 10px;
     font-size:16px;
     text-decoration: none;
     color: whitesmoke;
@@ -93,9 +93,10 @@ body {
 .post-card {
     border: 1px #222 solid;
     background: #111;
-    margin: 16px;
+    margin: 0px;
     border-radius: 8px;
-    padding: 16px;
+    padding: 32px;
+    margin-top: 16px;
 }
 
 .post-card p{
@@ -110,4 +111,52 @@ body {
 
 .comment-card p{
     font-size: 16px;
+}
+
+form input {
+    font-size: 16px;
+    border-radius: 8px;
+    width: 60vw;
+    padding: 12px 20px;
+    margin: 8px;
+    background-color: #444;
+    box-sizing: border-box;
+    color: white;
+}
+
+form textarea {
+    font-size: 16px;
+    border-radius: 8px;
+    width: 60vw;
+    height: 10vh;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #444;
+    box-sizing: border-box;
+    color: white;
+}
+
+form input[type=submit] {
+    background: orangered;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background: rgb(230, 44, 0);
+}
+
+.form-card {
+    margin-left: 15vw;
+    margin-right: 15vw;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    border: 1px #222 solid;
+    background: #111;
+    border-radius: 8px;
+    padding: 16px;
 }

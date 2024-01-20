@@ -17,6 +17,7 @@
     include('elements/post.php');
     if (isset($_SESSION['user_id'])) {
         include('elements/navbar1.php');
+        include('elements/add_post.php');
     } else {
         include('elements/navbar0.php');
     }

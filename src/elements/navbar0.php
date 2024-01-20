@@ -11,6 +11,7 @@
 <body>
     <div>
         <div class="navbar row">
+            <a class="add-button button" href="/">Home</a>
             <input type=text class="search-bar" placeholder="Your prompt..." style="margin-left: 31vw;">
             <a class="search-button button">Search</a>
             <p class="nick">Hi, Anonymous</p>

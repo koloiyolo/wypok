@@ -17,13 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $currentDate = date("Y-m-d");
         $category = $_POST['category'];
 
-        $statement = $mysqli->prepare("INSERT INTO post (id, title, content, date, user, category) VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+        $statement = $mysqli->prepare("INSERT INTO post (id, title, content, date, user, category) VALUES (NULL, ?, ?, ?, ?, ?)");
         $statement->bind_param("sssss", $title, $content, $currentDate, $user, $category);
         $statement->execute();
         if ($statement->affected_rows > 0) {
             echo json_encode(true);
         } else {
-            echo "Error adding record: " . $statement->error;
+            echo json_encode(false);
         }
         $statement->close();
 

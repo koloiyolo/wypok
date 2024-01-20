@@ -36,15 +36,12 @@
                 alert("Passwords don't match.");
                 return false;
             }
-            alert("check1");
             let username = $('#user').val();
-            alert("check2");
             $.ajax({
                 type: 'POST',
                 url: 'http:/api/users/get/check/',
                 data: { user: username },
                 success: function (response) {
-                    alert("check3");
                     alert(response);
                     // Handle the API response
                     if (response !== true) {
