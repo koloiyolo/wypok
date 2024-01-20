@@ -51,6 +51,7 @@ body {
     margin-left: 20vw;
     width: 30vw;
     padding: auto;
+    padding-left: 16px;
     background: #333;
     color: whitesmoke;
     font-size:16px;
