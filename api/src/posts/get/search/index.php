@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['category'])) {
+    if (isset($_POST['prompt'])) {
 
         $mysqli = new mysqli("db", "root", "password", "wypok");
 
@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
 
-        $category = $_POST['category'];
+        $prompt = $_POST['prompt'];
+        $pattern = '%' . $prompt . '%';
 
         $statement;
         if (isset($_POST['by'])) {
@@ -21,23 +22,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // order by with param
 
                 $order = $_POST['order'];
-                $statement = $mysqli->prepare("SELECT * FROM post WHERE category = (?) ORDER BY (?) (?)");
-                $statement->bind_param("sss", $category, $by, $order);
+                $statement = $mysqli->prepare("SELECT * FROM post WHERE title LIKE ? ORDER BY (?) (?)");
+                $statement->bind_param("sss", $pattern, $by, $order);
 
             } else {
 
                 // default order by
 
-                $statement = $mysqli->prepare("SELECT * FROM post WHERE category = (?) ORDER BY (?)");
-                $statement->bind_param("ss", $category, $by);
+                $statement = $mysqli->prepare("SELECT * FROM post WHERE title LIKE ? ORDER BY (?)");
+                $statement->bind_param("ss", $pattern, $by);
 
             }
         } else {
 
             // default select
 
-            $statement = $mysqli->prepare("SELECT * FROM post WHERE category = (?)");
-            $statement->bind_param("s", $category);
+            $statement = $mysqli->prepare("SELECT * FROM post WHERE title LIKE ?");
+            $statement->bind_param("s", $pattern);
         }
         $statement->execute();
 

@@ -9,8 +9,8 @@ function view_comment($comment)
         }
     }
     echo "<p><strong>" . $comment["user"] . "</strong> said:</p>";
+    echo '<br>';
     echo "<p>" . $comment["content"] . "</p>";
-    echo "<p>Commented at: " . $comment["date"] . "</p>";
     echo '<br>';
     echo '<hr>';
     echo '</div>';
