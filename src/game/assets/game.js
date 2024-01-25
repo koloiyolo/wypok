@@ -16,16 +16,21 @@ const state = {
 }
 
 const shuffle = array => {
+
+    // tworzenie kopii oryginalnej tablicy
     const clonedArray = [...array]
 
+    // odwrócona pętla for
     for (let index = clonedArray.length - 1; index > 0; index--) {
+        // generowanie losowego indeksu między 0 a "index"  i przechowanie go w zmiennej randomIndex.
         const randomIndex = Math.floor(Math.random() * (index + 1))
-        const original = clonedArray[index]
 
+        // zamiana miejscami elementów clonedArray[index] i clonedArray[randomIndex], aby uzyskać losową kolejność.
+        const original = clonedArray[index]
         clonedArray[index] = clonedArray[randomIndex]
         clonedArray[randomIndex] = original
     }
-
+    // zwrócenie wymieszanej tablicy
     return clonedArray
 }
 
@@ -50,7 +55,7 @@ const generateGame = () => {
         throw new Error("The dimension of the board must be an even number.")
     }
 
-    const emojis = ['🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍']
+    const emojis = ['🐯', '🐸', '🦁', '🐰', '🐶', '🐧', '🐒', '🦚', '🦎', '🦥']
     const picks = pickRandom(emojis, (dimensions * dimensions) / 2) 
     const items = shuffle([...picks, ...picks])
     const cards = `
@@ -70,12 +75,16 @@ const generateGame = () => {
 }
 
 const startGame = () => {
+
+    // ustawienie stanu gry
     state.gameStarted = true
     selectors.start.classList.add('disabled')
 
+    // ustawienie pętli gry
     state.loop = setInterval(() => {
         state.totalTime++
 
+        // aktualizacja statystyk w czasie rzeczywistym
         selectors.moves.innerText = `${state.totalFlips} moves`
         selectors.timer.innerText = `time: ${state.totalTime} sec`
     }, 1000)
@@ -114,7 +123,7 @@ const flipCard = card => {
         }, 1000)
     }
 
-    // If there are no more cards that we can flip, we won the game
+    // if there are no more cards that we can flip, we won the game
     if (!document.querySelectorAll('.card:not(.flipped)').length) {
         setTimeout(() => {
             selectors.boardContainer.classList.add('flipped')

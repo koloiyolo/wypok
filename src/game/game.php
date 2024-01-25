@@ -14,6 +14,12 @@
 
 <body>
     <div class="game">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="controls">
             <button class="button">Start</button>
             <div class="stats">

@@ -26,9 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
         curl_close($curl);
         
         $decoded_response = json_decode($response, true);
-        if ($decoded_response === true) {
+        if ($decoded_response !== false) {
             session_start();
             $_SESSION['user_id'] = $user;
+            $_SESSION['permission'] = $decoded_response;
             header("Location: /");
         } else {
             // Handle unsuccessful login

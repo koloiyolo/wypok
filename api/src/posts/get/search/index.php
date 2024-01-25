@@ -37,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // default select
 
-            $statement = $mysqli->prepare("SELECT * FROM post WHERE title LIKE ?");
-            $statement->bind_param("s", $pattern);
+            $statement = $mysqli->prepare("SELECT * FROM post WHERE title LIKE ? OR WHERE content LIKE ? OR WHERE user LIKE ?");
+            $statement->bind_param("sss", $pattern, $pattern, $pattern);
         }
         $statement->execute();
 

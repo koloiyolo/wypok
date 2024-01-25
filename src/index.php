@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -15,13 +15,22 @@
     <?php
     include('functions.php');
     include('elements/post.php');
-    if (isset($_SESSION['user_id'])) {
+    if (isset($_SESSION['user_id']) && $_SESSION['permission'] === 0) {
         include('elements/navbar1.php');
+        include('elements/add_post.php');
+    } else if ((isset($_SESSION['user_id']) && $_SESSION['permission'] === 1)) {
+        include('elements/navbar2.php');
         include('elements/add_post.php');
     } else {
         include('elements/navbar0.php');
     }
     include('home.php');
+    if (isset($_SESSION['user_id'])) {
+        include('contact.php');
+    }
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
     ?>
 
 </body>

@@ -6,14 +6,12 @@ function get_post($url)
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, 1);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-
     $response = curl_exec($curl);
     if ($response === false) {
         echo "Error processing request";
         return false;
     }
     curl_close($curl);
-
     return json_decode($response, true);
 }
 

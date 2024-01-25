@@ -3,7 +3,7 @@ include('comment.php');
 function view_post($post) {
     echo '<div class="row post-card">';
     if (isset($_SESSION['user_id'])) {
-        if (isset($_SESSION['user_id']) && $_SESSION['user_id'] === $post['user']) {
+        if (isset($_SESSION['user_id']) && ($_SESSION['user_id'] === $post['user'] || $_SESSION['permission'] === 1)) {
             echo "<a class='button delete-button' href='delete_post.php?post_id=" . $post['id'] . "'> Delete </a>";
         }
     }
@@ -25,6 +25,9 @@ function view_post($post) {
     echo "<input type='hidden' name='post_id' value='" .$post['id'] ."'>";
     echo "<input class='comment-field' type='text' name='content' placeholder='What do you think about it...'>";
     echo "<input class='comment-btn' type='submit' value='Comment'>";
+    if (!isset($_SESSION['user_id'])){
+       echo "<div class='g-recaptcha' data-sitekey='6LdmLFwpAAAAACn4EkUw8zswpcyKehl8jRBrdg7J'></div>"; 
+    }
     echo "</form>";
     if ($comments) {
         foreach ($comments as $comment) {

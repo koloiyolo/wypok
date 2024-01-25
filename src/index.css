@@ -5,8 +5,8 @@
 }
 
 body {
-    background: #000;
     display: flex;
+    background: #000;
     color: whitesmoke;
 }
 
@@ -62,6 +62,7 @@ input[type=submit]:hover {
 }
 
 .navbar {
+    width: 100vw;
     border-bottom: 1px #222 solid;
     flex-direction: row;
     display: flex;
@@ -201,4 +202,8 @@ input[type=submit]:hover {
     margin-left: 0px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+}
+
+.perm-btn {
+    margin-left: 90%;
 }

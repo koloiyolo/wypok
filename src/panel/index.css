@@ -1,0 +1,37 @@
+.content {
+    width: 60vw;
+    display: flex;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.users .messages {
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.flex {
+    display: flex;
+}
+
+span {
+    color: orangered;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.button {
+    border-radius: 8px;
+    margin: 0px;
+    margin-left: 16px;
+}
+
+.perm-btn {
+    margin-left: 90%;
+}
+
+p {
+    font-size: 18px;
+}

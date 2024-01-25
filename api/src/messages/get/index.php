@@ -9,30 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $statement;
-    if (isset($_POST['by'])) {
-        $by = $_POST['by'];
 
-        if (isset($_POST['order'])) {
 
-            // order by with param
+    $statement = $mysqli->prepare("SELECT * FROM message");
 
-            $order = $_POST['order'];
-            $statement = $mysqli->prepare("SELECT * FROM user ORDER BY (?) (?)");
-            $statement->bind_param("ss", $by, $order);
-        } else {
-
-            // default order by
-
-            $statement = $mysqli->prepare("SELECT * FROM user ORDER BY (?)");
-            $statement->bind_param("ss", $by);
-        }
-    } else {
-
-        // default select
-
-        $statement = $mysqli->prepare("SELECT * FROM user");
-    }
     $statement->execute();
 
     $result = $statement->get_result();

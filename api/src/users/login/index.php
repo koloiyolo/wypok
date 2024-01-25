@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
 
-        $statement = $mysqli->prepare("SELECT password FROM user WHERE user = (?)");
+        $statement = $mysqli->prepare("SELECT password, permission FROM user WHERE user = (?)");
         $statement->bind_param("s", $user);
         $statement->execute();
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $row = $result->fetch_assoc();
 
         if (password_verify($password, $row['password'])) {
-            echo json_encode(true);
+            echo json_encode($row['permission']);
             exit();
         }
 
