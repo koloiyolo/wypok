@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="index.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
-        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
 </head>
@@ -29,14 +28,16 @@
     </div>
     <script>
         function checks() {
-            let password = $('#password').value;
-            let confirm = $('#confirm').value;
+            let password = $('#password').val();
+            let confirm = $('#confirm').val();
             if (password !== confirm) {
-                // Cancel form submission
                 alert("Passwords don't match.");
                 return false;
+            } else {
+                return true;
             }
-            return true;
+            return false;
+            
         }
     </script>
 </body>
